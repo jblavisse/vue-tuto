@@ -19,21 +19,26 @@
       </li>
     </ul>
 
-    <ol>
-      <li :key="task.id" v-for="task in tasks">
-        {{task.content}}
-      </li>
-    </ol>
-
     <h3 @click="clickMe">Cliquez-moi!</h3>
-
 
     <button @click="incrementScore">Cliqué {{score}} fois</button>
 
+
+    <div>
+      <input type="text" v-model="newTask">
+      <button @click="addTask">Ajouter tâche</button>
+      <ol>
+        <li :key="task.id" v-for="task in tasks">
+          {{task.content}}
+        </li>
+      </ol>
+    </div>
   </div>
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid';
+
 export default {
   name: 'App',
   components: {
@@ -44,6 +49,15 @@ export default {
     },
     incrementScore: function() {
       this.score++;
+    },
+    addTask: function() {
+      // {id: 1, content: "Ma tâche"}
+      let currTask = {
+        id: uuidv4(),
+        content: this.newTask
+      };
+      this.tasks.push(currTask);
+      console.log(this.tasks);
     }
   },
   data: function() {
@@ -62,7 +76,8 @@ export default {
       tasks : [
         {id: 1, content: "Ma tâche"},
         {id: 2, content: "Ma pistache"}
-      ]
+      ],
+      newTask: ""
     }
   } 
 }
