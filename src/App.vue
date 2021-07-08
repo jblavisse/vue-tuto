@@ -27,6 +27,9 @@
 
     <h3 @click="clickMe">Cliquez-moi!</h3>
 
+
+    <button @click="incrementScore">Cliqué {{score}} fois</button>
+
   </div>
 </template>
 
@@ -38,6 +41,9 @@ export default {
   methods: {
     clickMe: function() {
       console.log("J'ai été cliqué!");
+    },
+    incrementScore: function() {
+      this.score++;
     }
   },
   data: function() {
