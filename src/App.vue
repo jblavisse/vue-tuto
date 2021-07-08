@@ -19,6 +19,14 @@
       </li>
     </ul>
 
+    <ol>
+      <li :key="task.id" v-for="task in tasks">
+        {{task.content}}
+      </li>
+    </ol>
+
+    <h3 @click="clickMe">Cliquez-moi!</h3>
+
   </div>
 </template>
 
@@ -26,6 +34,11 @@
 export default {
   name: 'App',
   components: {
+  },
+  methods: {
+    clickMe: function() {
+      console.log("J'ai été cliqué!");
+    }
   },
   data: function() {
     return {
@@ -39,6 +52,10 @@ export default {
         {id:1, title: "Pizza"},
         {id:2, title: "Jambon"},
         {id:3, title: "Framoge"}
+      ], 
+      tasks : [
+        {id: 1, content: "Ma tâche"},
+        {id: 2, content: "Ma pistache"}
       ]
     }
   } 
