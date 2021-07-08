@@ -33,15 +33,20 @@
         </li>
       </ol>
     </div>
+
+    <Barbie />
+    <Barbie />
   </div>
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
+import Barbie from './components/Barbie';
 
 export default {
   name: 'App',
   components: {
+    Barbie
   },
   methods: {
     clickMe: function() {
