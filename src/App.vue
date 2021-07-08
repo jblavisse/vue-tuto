@@ -1,9 +1,13 @@
 <template>
   <div id="app">
+    <aside v-if="showSidebar">Ma sidebar</aside>
+    <p v-else>Ce qui va s'afficher quand ma sidebar ne s'affiche pas</p>
+
     <h2 class="title">{{msg}} {{score}}</h2>
 
     <input type="text" v-model="firstname">
-    {{firstname}}
+    <input type="text" v-model="lastname">
+    {{firstname}} {{lastname}}
   </div>
 </template>
 
@@ -16,7 +20,9 @@ export default {
     return {
       msg: "Prout Prout!",
       firstname: "",
-      score: 0
+      lastname:"",
+      score: 0,
+      showSidebar: true
     }
   } 
 }
