@@ -13,7 +13,7 @@
     <input type="text" v-model="lastname">
     {{firstname}} {{lastname}}
 
-    <ul>
+    <ul :class="classFood">
       <li :key="aliment.id" v-for="aliment in food">
         {{aliment.title}}
       </li>
@@ -40,6 +40,10 @@
     <Player pseudo="JB" />
     <Player pseudo="Jaybowlss" />
     <Player pseudo="Jean-Bite" />
+
+    <ul>
+      <li :key="user.id" v-for="user in users">{{user.name}}</li>
+    </ul>
   </div>
 </template>
 
@@ -47,6 +51,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import Barbie from './components/Barbie';
 import Player from './components/Player';
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -56,7 +61,8 @@ export default {
   },
   mounted: function() {
     console.log("Coucou, je suis bien monté!");
-    /* axios */
+    axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(res => this.users = res.data)
   },
   methods: {
     clickMe: function() {
@@ -92,7 +98,9 @@ export default {
         {id: 1, content: "Ma tâche"},
         {id: 2, content: "Ma pistache"}
       ],
-      newTask: ""
+      newTask: "",
+      users: [],
+      classFood: "foodtruck"
     }
   } 
 }
@@ -101,5 +109,9 @@ export default {
 <style>
   .title {
     color: red;
+  }
+
+  .food {
+    background-color: blue;
   }
 </style>
