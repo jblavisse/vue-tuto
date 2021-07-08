@@ -1,13 +1,16 @@
 <template>
   <div class="barbie">
-      <h2>I'm a barbie girl in a barbie world</h2>
+      <h2>I'm a barbie girl in a barbie {{world}}</h2>
       <h3>Life in plastic, it's fantastic!</h3>
   </div>
 </template>
 
 <script>
 export default {
-    name:'Barbie'
+    name:'Barbie',
+    props: {
+      world: String
+    }
 }
 </script>
 

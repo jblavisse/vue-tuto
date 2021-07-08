@@ -34,19 +34,25 @@
       </ol>
     </div>
 
-    <Barbie />
-    <Barbie />
+    <Barbie world="Plastic" />
+    <Barbie world="Zgueg" />
+
+    <Player />
+    <Player />
+    <Player />
   </div>
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
 import Barbie from './components/Barbie';
+import Player from './components/Player';
 
 export default {
   name: 'App',
   components: {
-    Barbie
+    Barbie,
+    Player
   },
   methods: {
     clickMe: function() {
