@@ -35,11 +35,11 @@
     </div>
 
     <Barbie world="Plastic" />
-    <Barbie world="Zgueg" />
+    <Barbie world="Metal" />
 
-    <Player />
-    <Player />
-    <Player />
+    <Player pseudo="JB" />
+    <Player pseudo="Jaybowlss" />
+    <Player pseudo="Jean-Bite" />
   </div>
 </template>
 
@@ -53,6 +53,10 @@ export default {
   components: {
     Barbie,
     Player
+  },
+  mounted: function() {
+    console.log("Coucou, je suis bien monté!");
+    /* axios */
   },
   methods: {
     clickMe: function() {
